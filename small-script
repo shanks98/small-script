@@ -1,0 +1,19 @@
+#! /bin/bash
+
+#To use this script we need to install Subfinder, HTTProbe, Dirsearch and Nuclei
+
+#Creating Directory for Target
+mkdir /home/<USER>/Target
+
+#Using Subfinder for Subdomain discovery
+subfinder -d <XYZ.com> > /home/USER/Target/sub.txt
+
+#Using Httprobe to find the active domains
+cat /home/USER/Target/sub.txt | httprobe > /home/USER/Target/http.txt
+
+#Using dirsearch to find the vulnerable 200 OK url's
+cd /home/USER/dirsearch && python3 dirsearch.py -u https://app.clickup.com > /home/USER/Target/dir-search.txt
+cd ~
+
+#using nuclei to search for vulnerabilities
+nuclei -l /home/USER/Target/http.txt -t /home/USER/nuclei-templates/vulnerabilities > /home/USER/Target/vuln.txt
