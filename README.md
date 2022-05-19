@@ -1,2 +1,2 @@
-# small-script
-used a simple script to automate a small task
+# auto-script
+used a simple script to automate some tasks
