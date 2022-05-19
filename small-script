@@ -12,8 +12,9 @@ subfinder -d <XYZ.com> > /home/USER/Target/sub.txt
 cat /home/USER/Target/sub.txt | httprobe > /home/USER/Target/http.txt
 
 #Using dirsearch to find the vulnerable 200 OK url's
-cd /home/USER/dirsearch && python3 dirsearch.py -u https://app.clickup.com > /home/USER/Target/dir-search.txt
+cd /home/USER/dirsearch && python3 dirsearch.py -u <XYZ.COM> > /home/USER/Target/dir-search.txt
 cd ~
 
 #using nuclei to search for vulnerabilities
-nuclei -l /home/USER/Target/http.txt -t /home/USER/nuclei-templates/vulnerabilities > /home/USER/Target/vuln.txt
+nuclei -l /home/USER/Target/http.txt -t /home/USER/nuclei-templates/vulnerabilities/ > /home/USER/Target/vuln.txt
+nuclei -l /home/USER/Target/http.txt -t /home/USER/nuclei-templates/cves/ > /home/USER/Target/cves.txt
