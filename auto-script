@@ -2,10 +2,10 @@
 
 #To use this script we need to install Subfinder, HTTProbe, Dirsearch and Nuclei
 
-#Creating Directory for Target
+#Creating Directory for Target (Please replace the USER)
 mkdir /home/<USER>/Target
 
-#Using Subfinder for Subdomain discovery
+#Using Subfinder for Subdomain discovery (Please replace the XYZ.com with target)
 subfinder -d <XYZ.com> > /home/USER/Target/sub.txt
 
 #Using Httprobe to find the active domains
